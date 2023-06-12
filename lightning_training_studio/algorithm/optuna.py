@@ -54,7 +54,7 @@ class OptunaAlgorithm(Algorithm):
 
     def experiment_end(self, experiment_id: int, score: float):
         try:
-            self.study.tell(experiment_id, score)
+            self.study.tell(self.experiments[experiment_id], score)
         except RuntimeError as e:
             # The trial has already been added to the study.
             print(e)
